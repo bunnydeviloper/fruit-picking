@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <title>Pick Your Fruit</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  </head>
+  
+  <body>
+    <h2>Summer Fruit Picking</h2>
+    <div id="infoDiv">
+        <img src="https://www.kuhestan.co.za/wp-content/uploads/2017/12/Sour-Cherry-Mini-Cordial-600x600.jpg" width='70px' />
+        <img src="http://soappotions.com/wp-content/uploads/2017/10/orange.jpg" width='70px' />
+        <img src="http://juliandance.org/wp-content/uploads/2016/01/RedApple.jpg" width='70px' />    
+    </div>
+    <br />
+    <div>
+      <form>
+        <select name="fruit" onchange="pickFruit(this.value);">
+          <option value="">Select available fruit from below</option>
+          <option value="apple">Apple</option>
+          <option value="orange">Orange</option>
+          <option value="cherry">Cherry</option>
+        </select>
+      </form>
+    </div>
+  </body>
+  <script>
+const apple = 'https://codepen.io/bunnydeviloper/pen/JvWaGd.html';
+const orange = 'https://codepen.io/bunnydeviloper/pen/JvWaXd.html';
+const cherry = 'https://codepen.io/bunnydeviloper/pen/mLWGPm.html';
+
+const pickFruit = (type) => {
+  if (type === "") return; 
+  const ajax = new XMLHttpRequest();
+ // when the page is loaded, have a cb func to prefill our div
+  ajax.onreadystatechange = function() {
+    if (ajax.readyState === 4 && ajax.status === 200) {
+      $('#infoDiv').html(ajax.responseText);
+    }
+  };
+  let typeLink = '';
+  if (type === 'apple') typeLink = apple;
+  if (type === 'orange') typeLink = orange;
+  if (type === 'cherry') typeLink = cherry;
+  ajax.open('GET', typeLink, true);
+  ajax.send();
+};
+  </script>
+</html>
