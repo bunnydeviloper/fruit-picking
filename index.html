@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <title>Pick Your Fruit</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="client.js"></script>
+  </head>
+  
+  <body>
+    <h2>Summer Fruit Picking</h2>
+    <div id="infoDiv">
+        <img src="https://www.kuhestan.co.za/wp-content/uploads/2017/12/Sour-Cherry-Mini-Cordial-600x600.jpg" width='70px' />
+        <img src="http://soappotions.com/wp-content/uploads/2017/10/orange.jpg" width='70px' />
+        <img src="http://juliandance.org/wp-content/uploads/2016/01/RedApple.jpg" width='70px' />    
+    </div>
+    <br />
+    <div>
+      <form>
+        <select name="fruit" onchange="pickFruit(this.value);">
+          <option value="">Select available fruit from below</option>
+          <option value="apple">Apple</option>
+          <option value="orange">Orange</option>
+          <option value="cherry">Cherry</option>
+        </select>
+      </form>
+    </div>
+  </body>
+</html>
